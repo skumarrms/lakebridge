@@ -1,0 +1,26 @@
+<DataStageJob>
+  <JobName>Sample_Job_1</JobName>
+  <Description>Extracts data from a CSV and loads to a database.</Description>
+  <Stages>
+    <Stage>
+      <Name>CSV_Source</Name>
+      <Type>SequentialFile</Type>
+      <Properties>
+        <Property Name="FileName" Value="/data/input1.csv"/>
+      </Properties>
+    </Stage>
+    <Stage>
+      <Name>DB_Target</Name>
+      <Type>ODBCConnector</Type>
+      <Properties>
+        <Property Name="Table" Value="target_table_1"/>
+      </Properties>
+    </Stage>
+  </Stages>
+  <Links>
+    <Link>
+      <From>CSV_Source</From>
+      <To>DB_Target</To>
+    </Link>
+  </Links>
+</DataStageJob>
